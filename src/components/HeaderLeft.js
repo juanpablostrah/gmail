@@ -9,7 +9,7 @@ const HeaderLeft = () => {
   return (
     <div className='headerLeft'>
       <IconButton>
-        <Menu fontSize='large' style={{color: "gray", marginRight: 10}}/>
+        <Menu fontSize='large' style={{color: "gray"}}/>
       </IconButton>
       <div className='headerLeft_gmail'>
         <img src='https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_2x_r2.png' alt='gmail'></img>

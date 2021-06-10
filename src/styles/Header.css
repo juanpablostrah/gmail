@@ -1,40 +1,55 @@
 .header{
-  position: absolute;
   display: flex;
-  justify-content: space-between;
+  
   align-items: center;
   margin-top: 10px;
   border-bottom: 1px solid whitesmoke;
+  padding-bottom: 20px;
 }
 
-.headerLeft_searchInput{
+.header_center{
+  display: flex;
+  flex: 0.6;
   margin-left: 80px;
-  background-color: azure;
-  margin-top: 20px;
+  background-color: #ded6d5;
   padding: 10px;
   border-radius: 10px;
-  width: 700px;
   opacity: 0.3;
   align-items: center;
-  justify-content: center;
-  
+  width: 100%;
 }
 
-.headerLeft_searchInput > input{
-  height: 40px;
+.headerCenter_searchIcon > input{
+  outline-width: 0;
   border: none;
-  font-size: 20px;
+  font-size: medium;
+  padding: 10px;
+  background-color: transparent;
+  width: 750px;
 }
 
 .headerLeft{
+  flex: 0.2;
   display: flex;
   align-items: center;
+  
 }
 
-.headerLeft_searchIcon{
-  display: inline;
+.headerCenter_searchIcon{
+  display: flex;
+  
 }
 
-.headerLeft_gmail{
+.headerLeft_gmail > img{
   height: 55px;
+  margin-left: 10px;
+}
+
+.headerCenter_arrowDropDown{
+  
+}
+
+.headerRight{
+  display: flex;
+  align-items: center;
 }

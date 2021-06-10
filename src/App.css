@@ -1,4 +1,8 @@
 .App{
-  background-color: silver;
-  position: relative;
+  height: 100vh;  
+}
+
+.app_body{
+  display: flex;
+  height: 100vh;
 }

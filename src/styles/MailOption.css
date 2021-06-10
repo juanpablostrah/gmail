@@ -1,0 +1,43 @@
+.mailOption{
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-left: 30px;
+  height: 40px;
+  padding: 0 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #818181
+}
+
+.mailOption:hover,
+.mailOption:hover > h3
+.mailOption:hover > p{
+  background-color: #fcecec;
+  color: #c04b37;
+  font-weight: 800 !important;
+}
+
+.mailOption > h3{
+  flex: 1;
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mailOption > MuiSvgIcon-root{
+  padding: 5px
+}
+
+.mailOption > p{
+  display: none;
+  font-weight: 400;
+}
+
+.mailOption:hover > p{
+  display: inline;
+}
+
+.mailOption--active{
+  
+}
