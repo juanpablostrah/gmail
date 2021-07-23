@@ -13,11 +13,24 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import PersonIcon from '@material-ui/icons/Person'
 import DuoIcon from '@material-ui/icons/Duo'
 import PhoneIcon from '@material-ui/icons/Phone'
+import { openSendMessage } from '../features/mailSlice'
+import { useDispatch } from 'react-redux'
 
 const Sidebar = () => {
+  const dispatch = useDispatch()
+
+  function handleWrite(){
+    dispatch(openSendMessage())
+  }
   return (
     <div className='sidebar'>
-      <Button className='sidebar_addButton' startIcon={<AddIcon className='sidebar_addIcon' />}>Redactar</Button>
+      <Button 
+        className='sidebar_addButton' 
+        startIcon={<AddIcon className='sidebar_addIcon'/>}
+        onClick={() => handleWrite()} 
+      >
+        Redactar
+      </Button>
       <MailOption Icon={InboxIcon} title='Recibidos' number={54} selected={true}></MailOption>
       <MailOption Icon={StarIcon} title='Destacados' number={99}></MailOption>
       <MailOption Icon={AccessTimeIcon} title='Pospuestos' number={99}></MailOption>

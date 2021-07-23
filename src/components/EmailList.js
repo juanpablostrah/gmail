@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/EmailList.css'
 import Checkbox from '@material-ui/core/Checkbox';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
@@ -14,8 +14,33 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import { IconButton } from '@material-ui/core'
 import Section from './Section'
 import EmailRow from './EmailRow'
+import { db } from '../database/Firebase'
 
 const EmailList = () => {
+  const [emails, setEmails] = useState([])
+  const emailsCollection = db.collection('emails')
+  // useEffect(() => {
+  //   const myEmails = emailsCollection.where('to' === 'user').get()
+  //   return () => {
+  //     setEmails(myEmails)
+  //   }
+  // }, [emails, emailsCollection])
+  useEffect(() => {
+    db.collection('emails')
+      .orderBy('timestamp', 'desc')
+        .onSnapshot((snapshot) => {
+          setEmails(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              data: doc.data(),
+            }))
+          )
+        })
+        console.log('mails', emails)
+        //console.log('data1', emails[0].data)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
   return (
     <div className='emailList'>
       <div className='emailList_settings'>
@@ -54,11 +79,18 @@ const EmailList = () => {
       </div>
 
       <div className='emailList_list'>
-        <EmailRow 
-          title='hello world'
-          description='first email sent'
-          message='this is the message of the email'
-          time='10pm'/>
+        {
+          emails && emails.map(({id, data: { to, subject, message, timestamp }}) => {
+            return <EmailRow
+              key={id}
+              title={to}
+              id={id}
+              subject={subject}
+              description={message}
+              timestamp={timestamp}>
+            </EmailRow>
+          })
+        }
       </div>
     </div>
   )
