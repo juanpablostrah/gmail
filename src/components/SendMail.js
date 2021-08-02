@@ -13,6 +13,7 @@ const SendMail = () => {
   const dispatch = useDispatch()
   
   function submit(formData){
+    debugger
     console.log(formData)
     db.collection('emails').add({
       to: formData.to,
@@ -45,7 +46,8 @@ const SendMail = () => {
         <input 
           name='subject' 
           className='sendMailInput' 
-          type='text' placeholder='Subject' 
+          type='text' 
+          placeholder='Subject'
           {...register('subject',{ required : true})} 
         />
         <input 

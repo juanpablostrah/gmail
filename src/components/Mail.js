@@ -1,11 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import '../styles/Mail.css'
-import Checkbox from '@material-ui/core/Checkbox';
 import EmailIcon from '@material-ui/icons/Email'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox'
 import WatchLaterIcon from '@material-ui/icons/WatchLater'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import DeleteIcon from '@material-ui/icons/Delete'
 import ErrorIcon from '@material-ui/icons/Error'
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore'
@@ -60,13 +58,13 @@ const Mail = () => {
       </div>
       <div className='mail_body'>
         <div className='mail_bodyHeader'>
-          <h2>{mail.subject}</h2>
+          <h2>{mail?.subject}</h2>
           <LabelImportantIcon className='mail_important' />
-          <p>{mail.title}</p>
-          <p className='mail_body_time'>{mail.time}</p>
+          <p>{mail?.title}</p>
+          <p className='mail_body_time'>{mail?.time}</p>
         </div>
         <div className='mail_message'>
-          <p>{mail.description}</p>
+          <p>{mail?.description}</p>
         </div>
       </div>
     </div>
